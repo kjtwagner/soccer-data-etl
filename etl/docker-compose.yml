@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: soccer_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: bportwsoccer_user
+      POSTGRES_PASSWORD: bportwsoccer_pass
+      POSTGRES_DB: soccer_etl
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
